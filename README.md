@@ -1,6 +1,6 @@
 # taxi-system
 Description
-The Taxi System Application is designed to order a taxi from the user's side. Before a user orders a taxi, he must have an account in this application, otherwise he will register. Then he orders a taxi, chooses the speed at which he will drive, enters the start and end points, and the program calculates the distance from point A to point B, and based on the distance and cost of travel, the program calculates the cost of the trip. Also, the user can see the status of the order, data of the taxi driver, car and driver's actions. If necessary, he can also cancel the order.
+The Taxi System Application is designed to order a taxi from the user's side. Before a user orders a taxi, he must have an account in this application, otherwise he will register. Then he orders a taxi, chooses the tariff at which he will drive, enters the start and end points, and the program calculates the distance from point A to point B, and based on the distance and cost of travel, the program calculates the cost of the trip. Also, the user can see the status of the order, data of the taxi driver, car and driver's actions. If necessary, he can also cancel the order.
 Classes
 There are 6 types of classes:
 1. Data: this class is used to make a connection with Database PostgreSQL;
