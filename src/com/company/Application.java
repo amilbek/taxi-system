@@ -192,23 +192,30 @@ public class Application {
         System.out.println("Enter your login: ");
         scanner.nextLine();
         String login = scanner.next();
+        String checker = clientCont.clientCheck(login);
 
-        System.out.println("Enter your first name: ");
-        scanner.nextLine();
-        String clientFirstName = scanner.next();
+        if (checker.equals("Client was not found (Your login or password is incorrect)")) {
+            System.out.println("Enter your first name: ");
+            scanner.nextLine();
+            String clientFirstName = scanner.next();
 
-        System.out.println("Enter your last name: ");
-        scanner.nextLine();
-        String clientLastName = scanner.next();
+            System.out.println("Enter your last name: ");
+            scanner.nextLine();
+            String clientLastName = scanner.next();
 
-        System.out.println("Enter your phone number: ");
-        long phoneNumber = scanner.nextLong();
+            System.out.println("Enter your phone number: ");
+            long phoneNumber = scanner.nextLong();
 
-        System.out.println("Enter your password: ");
-        scanner.nextLine();
-        String password = scanner.next();
+            System.out.println("Enter your password: ");
+            scanner.nextLine();
+            String password = scanner.next();
 
-        String response = clientCont.addClient(login, clientFirstName, clientLastName, phoneNumber, password);
-        System.out.println(response);
+            String response = clientCont.addClient(login, clientFirstName, clientLastName, phoneNumber, password);
+            System.out.println(response);
+        }
+        else {
+            System.out.println(checker);
+            clientSignUp();
+        }
     }
 }
