@@ -46,6 +46,39 @@ public class ClientRepository implements IClientRepository {
 
         return null;
     }
+    
+    @Override
+    public Clients clientCheck(String login) {
+        Connection con = null;
+
+        try {
+            con = db.getConnection();
+            String sql = "SELECT login FROM clients WHERE login = ?";
+            PreparedStatement st = con.prepareStatement(sql);
+
+            st.setString(1, login);
+
+            ResultSet rs = st.executeQuery();
+
+            if (rs.next()) {
+                Clients client = new Clients(rs.getString("login"));
+
+                return client;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        return null;
+    }
 
     @Override
     public boolean addClient(Clients client) {
