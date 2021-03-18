@@ -15,6 +15,12 @@ public class ClientController {
 
         return (client == null ? "Client was not found (Your login or password is incorrect)" : ( "Client was found. You are signed in as " + login) );
     }
+    
+    public String clientCheck(String login) {
+        Clients client = repo.clientCheck(login);
+
+        return (client == null ? "Client was not found (Your login or password is incorrect)" : "This user already exists");
+    }
 
     public String addClient(String login, String clientFirstName, String clientLastName, long phoneNumber, String password) {
         Clients client = new Clients(login, clientFirstName, clientLastName, phoneNumber, password);
